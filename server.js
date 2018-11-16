@@ -17,5 +17,11 @@ bot.on('message', function(user, userID, channelID, message, event) {
     const messageID = event.d.id;
 
     const messageCheckedForALink = urlCheckRegEx.exec(message);
-    console.log(message)
+    console.log(messageCheckedForALink)
+    if(messageCheckedForALink && userID === owner) {
+      bot.sendMessage({
+        to: owner,
+        message: "<@" + userID + "> has sent a message containing a link:\n" + messageCheckedForALink[0] + '\n\n------------- Channel name -------------\n'+ bot.channels[channelID].name + "\n\n------------- Full message ------------- \n" + message
+      })
+    }
 })
