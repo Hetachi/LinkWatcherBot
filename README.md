@@ -1,5 +1,5 @@
 # Discord BOT
-A Discord bot I made as per request on Reddit
+Discord bot made as per request on Reddit
 
 A Discord bot that will send you a private message whenever someone that is not you will send a message containing a link.
 
