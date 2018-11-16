@@ -1,0 +1,21 @@
+const token = require('./components/config/botToken')
+const owner = require('./components/config/ownerID')
+
+var Discord = require('discord.io');
+var bot = new Discord.Client({
+    token: token,
+    autorun: true
+});
+
+bot.on('ready', function(event) {
+    console.log('Logged in as %s - %s\n', bot.username, bot.id);
+});
+
+var urlCheckRegEx = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
+
+bot.on('message', function(user, userID, channelID, message, event) {
+    const messageID = event.d.id;
+
+    const messageCheckedForALink = urlCheckRegEx.exec(message);
+    console.log(message)
+})
