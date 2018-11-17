@@ -17,7 +17,6 @@ bot.on('message', function(user, userID, channelID, message, event) {
     const messageID = event.d.id;
 
     const messageCheckedForALink = urlCheckRegEx.exec(message);
-    console.log(messageCheckedForALink)
     if(messageCheckedForALink && userID !== owner) {
       bot.sendMessage({
         to: owner,
